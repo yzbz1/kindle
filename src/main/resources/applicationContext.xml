@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<!-- Spring Container -->
+
+	<!--注入CustomerController对象 -->
+
+	<bean id="customerController" class="com.chixing.controller.CustomerController">
+		<constructor-arg ref ="customerServiceImpl"> </constructor-arg>
+		<constructor-arg type="int" value="20" index="0"></constructor-arg>
+		<constructor-arg type="int" value ="30" index="1"></constructor-arg>
+	</bean>
+
+
+	<!--注入CustomerServiceImpl对象 -->
+	<bean id="customerServiceImpl"
+		  class="com.chixing.service.impl.CustomerServiceImpl"
+	      init-method="myinit"
+	      destroy-method="mydestory">
+	</bean>
+
+
+
+
+</beans>
